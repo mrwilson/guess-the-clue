@@ -18,9 +18,12 @@ layout: base
         flex-wrap: wrap;
 
         button {
+            flex-basis: 100%;
+            background: none;
+            border: none;
             margin: 2em;
             padding: 1em;
-            font-size: x-large;
+            font-size: xx-large;
         }
     }
 
@@ -46,6 +49,16 @@ layout: base
         text-transform: uppercase;
         caret-color: transparent;
         border: solid black 4px;
+    }
+
+    @media (max-width: 728px) {
+        input {
+            font-size: large;
+        }
+    }
+
+    .word {
+        padding: 1em;
     }
 
     .validating {
@@ -75,7 +88,6 @@ layout: base
 <section id="clue_section">
     <h1 id="clue"></h1>
     <form id="answer" target="_blank"></form>
-
     <button id="validate"></button>
 </section>
 

@@ -20,11 +20,11 @@ export class MiniClue {
             `[BETA] ${params.c}`
         );
 
-        clue.textContent = params.c;
+        let words = params.a.split(' ')
 
-        params.a
-            .split('')
-            .map(x => MiniClue.#createLetter(x))
+        clue.textContent = `${params.c} (${words.map(x => x.length).join(",")})`;
+
+        words.map(x => MiniClue.#createWord(x))
             .forEach(l => this.answerElement.appendChild(l));
     }
 
@@ -52,21 +52,28 @@ export class MiniClue {
 
     }
 
-    static #createLetter(letter, idx) {
-        if (letter == ' ' || letter == '-') {
-            let l = document.createElement('span');
-            l.textContent = letter;
-            return l;
-        }
+    static #createWord(word, idx) {
+        // if (word == ' ' || word == '-') {
+        //     let l = document.createElement('span');
+        //     l.textContent = word;
+        //     return l;
+        // }
+        let group = document.createElement('div');
+        group.classList.add("word");
 
-        let l = document.createElement('input');
-        l.classList.add("letter");
-        l.pattern = `[${letter.toUpperCase()}${letter.toLowerCase()}]`;
-        l.required = true;
-        l.maxLength = 1;
-        l.minLength = 1;
-        MiniClue.#navigate(l);
-        return l;
+        word.split('')
+            .forEach(letter => {
+                let l = document.createElement('input');
+                l.classList.add("letter");
+                l.pattern = `[${letter.toUpperCase()}${letter.toLowerCase()}]`;
+                l.required = true;
+                l.maxLength = 1;
+                l.minLength = 1;
+                MiniClue.#navigate(l);
+                group.appendChild(l);
+            })
+
+        return group;
     }
 
 }
