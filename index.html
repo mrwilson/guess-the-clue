@@ -3,123 +3,13 @@
     <head>
         <title>Guess The Clue</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="keywords" content="cryptic, crossword, clues"/>
         <meta name="description" content="Guess The Clue!"/>
         <meta property="og:title" content="Guess The Clue"/>
         <meta property="og:site_name" content="Guess The Clue"/>
-
-        <style>
-            :root {
-                --colour-base: #8EDC6F;
-                --colour-green: #43a856ff;
-                --colour-green-aa: #358544;
-                --colour-green-aaa: #286433;
-                --colour-green-2: #64bd76ff;
-                --colour-green-3: #85cb91ff;
-                --colour-green-4: #75c585ff;
-                --colour-teal: #9bbcabff;
-                --colour-grey: #9fa6b4ff;
-            }
-
-            html {
-                max-width: min(120ch, 100% - 4rem);
-                margin-inline: auto;
-                color-scheme: light dark;
-
-                body {
-                    font-family: system-ui;
-                    font-size: 1.25rem;
-                    line-height: 1.5;
-                }
-
-                form {
-                    display: flex;
-                    flex-wrap: wrap;
-
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                #clue_section {
-                    display: flex;
-                    align-content: center;
-                    justify-content: space-evenly;
-                    row-gap: 5em;
-                    flex-wrap: wrap;
-
-                    h1 {
-                        color: var(--colour-green);
-                        font-size: xxx-large;
-                    }
-
-                    button {
-                        flex-basis: 100%;
-                        background: none;
-                        border: none;
-                        margin: 2em;
-                        padding: 1em;
-                        font-size: xx-large;
-                    }
-                }
-
-                span {
-                    width: 1em;
-                    height: 1em;
-                    flex-basis: 100%;
-                }
-
-                input {
-                    padding: 0.5em;
-                    margin-right: -4px;
-                    width: 1em;
-                    height: 1em;
-                    font-size: xxx-large;
-                    text-align: center;
-                    font-family: sans-serif;
-                    text-transform: uppercase;
-                    caret-color: transparent;
-                    border: solid black 4px;
-                }
-
-                @media (max-width: 728px) {
-                    input {
-                        font-size: large;
-                    }
-                }
-
-                .word {
-                    padding: 1em;
-                }
-
-                .validating {
-                    .letter {
-                        pointer-events: none;
-                    }
-
-                    .letter:valid {
-                        background: lightgreen;
-                    }
-
-                    .letter:invalid {
-                        background: lightcoral;
-                    }
-                }
-
-                #validate::after {
-                    content: "Check!"
-                }
-
-                .validating + #validate {
-                    &::after {
-                        content: "Try again?"
-                    }
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="./index.css"/>
     </head>
-
     <body>
         <main>
             <section id="clue_section">
@@ -127,7 +17,6 @@
                 <form id="answer" target="_blank"></form>
                 <button title="Validate" id="validate"></button>
             </section>
-
             <script type="module">
                 import { MiniClue } from "./miniclue/index.js";
 
