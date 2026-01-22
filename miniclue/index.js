@@ -13,9 +13,9 @@ export class MiniClue {
   }
 
   renderClue(params) {
-    let words = params.a.split(" ");
+    let words = params.answer.split(" ");
 
-    this.clueElement.textContent = `${params.c} (${words.map((x) => x.length).join(",")})`;
+    this.clueElement.textContent = `${params.clue} (${words.map((x) => x.length).join(",")})`;
 
     words
       .map((x) => this.#createWord(x))
@@ -59,6 +59,5 @@ export class MiniClue {
     l.setAttribute("aria-label", "letter");
     this.letters.push(l);
     return l;
-
   }
 }

@@ -19,15 +19,14 @@
             </section>
             <script type="module">
                 import { MiniClue } from "./miniclue/index.js";
+                import { ClueDecoder} from "./miniclue/decoder.js";
 
                 const miniClue = new MiniClue(
                     document.getElementById('answer'),
-                    document.getElementById('clue')
+                    document.getElementById('clue'),
                 );
 
-                miniClue.renderClue(
-                    JSON.parse(atob(window.location.hash.substring(1)))
-                );
+                miniClue.renderClue(new ClueDecoder().decode(window.location.hash));
 
                 document.getElementById('validate').onclick = (e) => miniClue.validate(e);
             </script>
