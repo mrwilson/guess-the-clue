@@ -129,7 +129,7 @@
             </section>
 
             <script type="module">
-                import { MiniClue } from "./guess.js";
+                import { MiniClue } from "./miniclue/index.js";
 
                 new MiniClue(answer, validate).renderClue(
                     JSON.parse(atob(window.location.hash.substring(1)))
