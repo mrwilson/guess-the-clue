@@ -12,4 +12,13 @@ describe("ClueDecoder", () => {
       answer: "eye opening",
     });
   });
+
+  it("can decode string-based clues from hash fragment", () => {
+    let input = "#SW5jcmVkaWJsZSBwdXBpbHxleWUgb3BlbmluZw";
+
+    assert.deepEqual(decoder.decode(input), {
+      clue: "Incredible pupil",
+      answer: "eye opening",
+    });
+  });
 });
