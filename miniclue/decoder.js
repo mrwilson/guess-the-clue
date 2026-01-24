@@ -1,4 +1,8 @@
 export class ClueDecoder {
+  constructor(examples) {
+    this.examples = examples;
+  }
+
   #decodeJson(input) {
     let data = JSON.parse(input);
 
@@ -18,7 +22,13 @@ export class ClueDecoder {
   }
 
   decode(input) {
-    let data = atob(input.substring(1));
+    let hash = input.substring(1);
+
+    if (hash in this.examples) {
+      return this.examples[hash];
+    }
+
+    let data = atob(hash);
 
     return data.startsWith("{")
       ? this.#decodeJson(data)

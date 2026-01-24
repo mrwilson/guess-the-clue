@@ -20,6 +20,9 @@
             <script type="module">
                 import { MiniClue } from "./miniclue/index.js";
                 import { ClueDecoder} from "./miniclue/decoder.js";
+                import examples from './miniclue/examples.js';
+
+                const clue = new ClueDecoder(examples).decode(window.location.hash);
 
                 const miniClue = new MiniClue(
                     document.getElementById('answer'),
@@ -27,7 +30,7 @@
                     document.getElementById('validate')
                 );
 
-                miniClue.renderClue(new ClueDecoder().decode(window.location.hash));
+                miniClue.renderClue(clue);
             </script>
         </main>
     </body>
