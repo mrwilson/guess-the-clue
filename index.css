@@ -25,11 +25,13 @@ html {
         height: 100vh;
         width: 100%;
         display: grid;
-        grid-template-rows: 1fr auto 3fr;
-
+        grid-template:
+            "clue" auto
+            "answer" auto
+            "validate" auto
+            "keyboard" env(keyboard-inset-height, 0px);
         align-content: center;
         justify-content: center;
-        row-gap: 5em;
 
         h1 {
             color: var(--colour-green);
@@ -62,7 +64,6 @@ html {
 
             @media (max-width: 728px) {
                 input {
-                    /*padding: 1em;*/
                     font-size: xx-large;
                 }
             }
@@ -82,6 +83,7 @@ html {
             padding: 1em;
             font-size: xx-large;
             grid-row: 3;
+            bottom: env(keyboard-inset-height, 0);
         }
     }
 
