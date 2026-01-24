@@ -24,11 +24,10 @@
                 const miniClue = new MiniClue(
                     document.getElementById('answer'),
                     document.getElementById('clue'),
+                    document.getElementById('validate')
                 );
 
                 miniClue.renderClue(new ClueDecoder().decode(window.location.hash));
-
-                document.getElementById('validate').onclick = (e) => miniClue.validate(e);
             </script>
         </main>
     </body>

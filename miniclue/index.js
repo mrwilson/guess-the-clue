@@ -1,14 +1,16 @@
 export class MiniClue {
-  constructor(answerElement, clueElement) {
+  validateElement;
+  constructor(answerElement, clueElement, validateElement) {
     this.answerElement = answerElement;
     this.clueElement = clueElement;
+    this.validateElement = validateElement;
     this.letters = [];
   }
 
-  validate(event) {
+  validate() {
     this.answerElement.classList.toggle("validating");
     if (this.answerElement.checkValidity()) {
-      event.target.remove();
+      this.validateElement.remove();
     }
   }
 
@@ -22,6 +24,8 @@ export class MiniClue {
       .forEach((l) => this.answerElement.appendChild(l));
 
     this.#navigate();
+
+    this.validate.onclick = (_) => miniClue.validate();
   }
 
   #navigate() {
@@ -33,6 +37,10 @@ export class MiniClue {
       };
       win2.onkeydown = (e) => {
         !win2.value && e.keyCode === 8 && win1.focus();
+
+        if (i + 1 === this.letters.length - 1 && e.keyCode === 13) {
+          this.validate(e);
+        }
       };
     }
   }

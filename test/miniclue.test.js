@@ -1,6 +1,5 @@
 import { assert, describe, it } from "vitest";
 import { MiniClue } from "../miniclue";
-import { ClueDecoder } from "../miniclue/decoder.js";
 
 // @vitest-environment jsdom
 
@@ -9,7 +8,7 @@ describe("MiniClue", () => {
     validate = document.createElement("button"),
     clue = document.createElement("h1");
 
-  const miniClue = new MiniClue(answer, clue);
+  const miniClue = new MiniClue(answer, clue, validate);
 
   it("can add validation class when required", () => {
     assert(!answer.classList.contains("validating"));
