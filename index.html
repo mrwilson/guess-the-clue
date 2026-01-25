@@ -15,7 +15,6 @@
             <section id="clue_section">
                 <h1 id="clue"></h1>
                 <form id="answer" target="_blank"></form>
-                <button title="Validate" id="validate"></button>
             </section>
             <script type="module">
                 import { MiniClue } from "./miniclue/index.js";
@@ -27,7 +26,6 @@
                 const miniClue = new MiniClue(
                     document.getElementById('answer'),
                     document.getElementById('clue'),
-                    document.getElementById('validate')
                 );
 
                 miniClue.renderClue(clue);

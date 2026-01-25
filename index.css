@@ -28,19 +28,17 @@ html {
         grid-template:
             "clue" auto
             "answer" auto
-            "validate" auto
             "keyboard" env(keyboard-inset-height, 0px);
         align-content: center;
         justify-content: center;
 
-        h1 {
+        #clue {
             color: var(--colour-green);
-            font-size: xxx-large;
             grid-row: 1;
             text-align: center;
         }
 
-        form {
+        #answer {
             display: flex;
             flex-wrap: wrap;
 
@@ -48,13 +46,17 @@ html {
             justify-content: center;
             grid-row: 2;
 
-            input {
+            .word {
+                padding: 1em;
+            }
+
+            .letter {
                 padding: 0.3em;
                 margin-right: -4px;
 
                 width: 1em;
                 height: 1em;
-                font-size: xxx-large;
+                font-size: xx-large;
                 text-align: center;
                 font-family: sans-serif;
                 text-transform: uppercase;
@@ -62,57 +64,15 @@ html {
                 border: solid black 4px;
             }
 
+            &:valid {
+                background: lightgreen;
+            }
+
             @media (max-width: 728px) {
-                input {
-                    font-size: xx-large;
+                .letter {
+                    font-size: x-large;
                 }
             }
-        }
-
-        span {
-            width: 1em;
-            height: 1em;
-            flex-basis: 100%;
-        }
-
-        button {
-            flex-basis: 100%;
-            background: none;
-            border: none;
-            margin: 2em;
-            padding: 1em;
-            font-size: xx-large;
-            grid-row: 3;
-            bottom: env(keyboard-inset-height, 0);
-        }
-    }
-
-
-    .word {
-        padding: 1em;
-    }
-
-    .validating {
-        .letter {
-            pointer-events: none;
-        }
-
-        .letter:valid {
-            background: lightgreen;
-        }
-
-        .letter:invalid {
-            background: lightcoral;
-        }
-    }
-
-    #validate::after {
-        content: "Check!"
-    }
-
-    .validating + #validate {
-        &::after {
-            content: "Try again?"
         }
     }
 }

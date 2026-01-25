@@ -5,18 +5,9 @@ import { MiniClue } from "../miniclue";
 
 describe("MiniClue", () => {
   const answer = document.createElement("form"),
-    validate = document.createElement("button"),
     clue = document.createElement("h1");
 
-  const miniClue = new MiniClue(answer, clue, validate);
-
-  it("can add validation class when required", () => {
-    assert(!answer.classList.contains("validating"));
-
-    miniClue.validate({ target: validate });
-
-    assert(answer.classList.contains("validating"));
-  });
+  const miniClue = new MiniClue(answer, clue);
 
   it("can render a clue", () => {
     miniClue.renderClue({ clue: "What time is it?", answer: "aaaaaa" });
