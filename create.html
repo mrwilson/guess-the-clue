@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guess The Clue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="keywords" content="cryptic, crossword, clues"/>
+    <meta name="description" content="Guess The Clue!"/>
+    <meta property="og:title" content="Guess The Clue"/>
+    <meta property="og:site_name" content="Guess The Clue"/>
+    <link rel="stylesheet" href="./index.css"/>
+    <style>
+        main {
+            height: 80vh;
+            display: grid;
+            grid-template:
+            "title" auto
+            "maker" 1fr
+            "clue" auto
+            "url" 1fr
+            "copy" auto
+            "keyboard" env(keyboard-inset-height, 0px);
+            align-content: center;
+            justify-content: center;
+
+            #title {
+                color: var(--colour-green);
+                grid-row: 1;
+                text-align: center;
+            }
+
+            textarea {
+                width: auto;
+                resize: none;
+                padding: 1em;
+                border: none;
+                border-bottom: solid black 2px;
+                field-sizing: fixed;
+            }
+
+            #maker {
+                display: inline-grid;
+                grid-row: 2;
+                row-gap: 4em;
+
+                h2 {
+                    color: var(--colour-green-2);
+                }
+
+
+
+                textarea[name="answer"] {
+                    text-transform: uppercase;
+                }
+
+            }
+
+            #clue {
+                color: var(--colour-green);
+                grid-row: 3;
+            }
+
+            #url {
+                color: var(--colour-green);
+                grid-row: 4;
+                word-break: break-all;
+            }
+
+            #copy {
+                grid-row: 5;
+                margin: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1 id="title">Create your own!</h1>
+    <form id="maker">
+        <textarea name="clue" placeholder="My clue, what do you think?" rows="1"></textarea>
+        <textarea name="answer" placeholder="ANSWER" rows="1"></textarea>
+    </form>
+    <h2 id="clue">My clue</h2>
+    <textarea id="url" rows="3" readonly></textarea>
+    <button id="copy" onclick="navigator.clipboard.writeText(url.value)">Copy To Clipboard</button>
+    <script>
+        document.getElementById('maker').addEventListener('input', (_) => {
+            let format = [...document.getElementById('maker').querySelectorAll('textarea')]
+                .map((e) => e.value)
+                .join("|");
+
+            document.getElementById('url').textContent = `${window.location.origin}/guess/#${btoa(format)}`
+        });
+    </script>
+</main>
+</body>
+</html>
