@@ -1,16 +1,8 @@
 export class MiniClue {
-  constructor(answerElement, clueElement, validateElement) {
+  constructor(answerElement, clueElement) {
     this.answerElement = answerElement;
     this.clueElement = clueElement;
-    this.validateElement = validateElement;
     this.letters = [];
-  }
-
-  validate() {
-    this.answerElement.classList.toggle("validating");
-    if (this.answerElement.checkValidity()) {
-      this.validateElement.remove();
-    }
   }
 
   renderClue(params) {
@@ -23,8 +15,6 @@ export class MiniClue {
       .forEach((l) => this.answerElement.appendChild(l));
 
     this.#navigate();
-
-    this.validateElement.onclick = (_) => this.validate();
   }
 
   #navigate() {
