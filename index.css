@@ -6,51 +6,6 @@
     text-align: center;
 }
 
-#answer {
-    display: flex;
-    flex-wrap: wrap;
-
-    align-items: center;
-    justify-content: space-around;
-    grid-row: 2;
-
-    .word {
-        padding: 1em;
-    }
-
-    .letter {
-        padding: 0.2em;
-        margin-right: -4px;
-        /*margin-top: 0.5em;*/
-
-        width: 1em;
-        height: 1em;
-        font-size: xx-large;
-        text-align: center;
-        font-family: sans-serif;
-        text-transform: uppercase;
-        caret-color: transparent;
-        border: solid black 4px;
-
-        &:focus {
-            outline: none;
-        }
-    }
-
-    &:valid > .word {
-        background: lightgreen;
-    }
-
-    &:not(:has(> .word)) + #buttons {
-        display: none;
-    }
-
-    @media (max-width: 728px) {
-        .letter {
-            font-size: x-large;
-        }
-    }
-}
 
 #buttons {
     display: flex;
