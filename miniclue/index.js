@@ -36,20 +36,30 @@ export class MiniClue {
         missingLetters[Math.floor(Math.random() * missingLetters.length)];
 
       letter.value = letter.pattern[1];
-      letter.classList.readOnly = true;
+      letter.readOnly = true;
       letter.classList.add("gtc_answer__word__letter--revealed");
     };
   }
 
   #navigate() {
-    for (let i = 0; i < this.letters.length - 1; i++) {
-      const [win1, win2] = this.letters.slice(i, i + 2);
-
-      win1.oninput = (_) => {
-        win1.value && win2.focus();
+    for (const [idx, value] of this.letters.entries()) {
+      value.oninput = () => {
+        idx !== this.letters.length &&
+          value.value &&
+          this.letters
+            .slice(idx + 1)
+            .find((x) => !x.readOnly)
+            .focus();
       };
-      win2.onkeydown = (e) => {
-        !win2.value && e.keyCode === 8 && win1.focus();
+
+      value.onkeydown = (e) => {
+        idx !== 0 &&
+          !value.value &&
+          e.keyCode === 8 &&
+          this.letters
+            .slice(0, idx)
+            .findLast((x) => !x.readOnly)
+            .focus();
       };
     }
   }
