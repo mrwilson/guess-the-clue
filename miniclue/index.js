@@ -50,10 +50,6 @@ export class MiniClue {
       };
       win2.onkeydown = (e) => {
         !win2.value && e.keyCode === 8 && win1.focus();
-
-        if (i + 1 === this.letters.length - 1 && e.keyCode === 13) {
-          this.validate(e);
-        }
       };
     }
   }
