@@ -10,6 +10,13 @@
         <meta property="og:site_name" content="Guess The Clue"/>
         <link rel="stylesheet" href="./index.css"/>
         <style>
+
+            @keyframes grow-shrink {
+                50% {
+                    scale: 120%;
+                }
+            }
+
             .gtc_main__index {
                 grid-template:
                     "clue" auto "answer" 40% "reveal" 10%
@@ -46,6 +53,7 @@
             .gtc_answer__word__letter--revealed {
                 background: var(--colour-grey);
                 cursor: none;
+                animation: grow-shrink 500ms ease-out 0s normal;
             }
 
             .gtc_answer:valid > .gtc_answer__word {
