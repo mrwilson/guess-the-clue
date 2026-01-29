@@ -12,12 +12,13 @@ describe("MiniClue", () => {
     revealLetter = document.createElement("button");
     revealWord = document.createElement("button");
 
-    new MiniClue(answer, clue, revealLetter, revealWord)
-        .renderClue({ clue: "What time is it?", answer: "aaaaaa" });
+    new MiniClue(answer, clue, revealLetter, revealWord).renderClue({
+      clue: "What time is it?",
+      answer: "aaaaaa",
+    });
   });
 
   it("can render a clue", () => {
-
     assert.equal(clue.textContent, "What time is it? (6)");
   });
 
@@ -31,6 +32,17 @@ describe("MiniClue", () => {
     assert.equal(answerValue(), "");
     revealWord.click();
     assert.equal(answerValue(), "AAAAAA");
+  });
+
+  it("can enumerate one word", () => {
+    assert.equal(MiniClue.enumerate("AAAA"), "4");
+  });
+  it("can enumerate multiple words with spaces", () => {
+    assert.equal(MiniClue.enumerate("AAA AA"), "3,2");
+  });
+
+  it("can enumerate multiple words with spaces and hyphens", () => {
+    assert.equal(MiniClue.enumerate("AAA-AA"), "3-2");
   });
 
   function answerValue() {

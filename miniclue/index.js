@@ -13,9 +13,9 @@ export class MiniClue {
   }
 
   renderClue(params) {
-    let words = params.answer.split(" ");
+    let words = params.answer.split(/[ -]/);
 
-    this.clueElement.textContent = `${params.clue} (${words.map((x) => x.length).join(",")})`;
+    this.clueElement.textContent = `${params.clue} (${MiniClue.enumerate(params.answer)})`;
 
     words
       .map((x) => this.#createWord(x))
@@ -37,7 +37,7 @@ export class MiniClue {
 
       letter.value = letter.pattern[1];
       letter.classList.readOnly = true;
-      letter.classList.add("gtc_answer__word__letter--revealed")
+      letter.classList.add("gtc_answer__word__letter--revealed");
     };
   }
 
@@ -81,5 +81,21 @@ export class MiniClue {
     l.setAttribute("aria-label", "letter");
     this.letters.push(l);
     return l;
+  }
+
+  static enumerate(answer) {
+    return answer
+      .split(/([ -])/)
+      .map((x) => {
+        switch (x) {
+          case " ":
+            return ",";
+          case "-":
+            return "-";
+          default:
+            return x.length;
+        }
+      })
+      .join("");
   }
 }
