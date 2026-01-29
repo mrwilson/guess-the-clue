@@ -58,7 +58,7 @@ export class MiniClue {
 
   #createWord(word) {
     let group = document.createElement("div");
-    group.classList.add("word");
+    group.classList.add("gtc_answer__word");
 
     word
       .split("")
@@ -70,7 +70,7 @@ export class MiniClue {
 
   #createLetter(letter) {
     let l = document.createElement("input");
-    l.classList.add("letter");
+    l.classList.add("gtc_answer__word__letter");
     l.pattern = `[${letter.toUpperCase()}${letter.toLowerCase()}]`;
     l.required = true;
     l.name = `letter${letter}`;

@@ -15,12 +15,53 @@
                     "clue" auto "answer" 40% "reveal" 10%
                     "keyboard" env(keyboard-inset-height, 0px);
             }
+
+            .gtc_answer {
+                display: flex;
+                flex-wrap: wrap;
+
+                align-items: center;
+                justify-content: space-around;
+                grid-row: 2;
+            }
+
+            .gtc_answer__word {
+                padding: 1em;
+            }
+
+            .gtc_answer__word__letter {
+                padding: 0.2em;
+                margin-right: -4px;
+
+                width: 1em;
+                height: 1em;
+                font-size: xx-large;
+                text-align: center;
+                font-family: sans-serif;
+                text-transform: uppercase;
+                caret-color: transparent;
+                border: solid black 4px;
+            }
+
+            .gtc_answer:valid > .gtc_answer__word {
+                background: lightgreen;
+            }
+
+            .gtc_answer:not(:has(> .gtc_answer__word)) + #buttons {
+                display: none;
+            }
+
+            @media (max-width: 728px) {
+                .gtc_answer__word__letter {
+                    font-size: x-large;
+                }
+            }
         </style>
     </head>
     <body>
         <main class="gtc_main gtc_main--index">
             <h1 id="clue"></h1>
-            <form id="answer" target="_blank"></form>
+            <form class="gtc_answer" id="answer" target="_blank"></form>
             <div id="buttons">
                 <button class="gtc_button" id="reveal-letter">Reveal letter</button>
                 <button class="gtc_button" id="reveal-all">Reveal word</button>
