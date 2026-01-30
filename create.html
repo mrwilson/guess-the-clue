@@ -30,18 +30,18 @@
                 input[name="answer"] {
                     text-transform: uppercase;
                 }
+
+                .gtc_input {
+                    border: none;
+                }
             }
 
             .gtc_button--copy {
                 grid-row: 3;
             }
 
-            .gtc_input--clue {
-                height: 3em;
-            }
-
-            .gtc_input--answer {
-                /*padding: 5em;*/
+            .gtc_input--clue, .gtc_input--hint {
+                height: 4em;
             }
 
             label {
@@ -54,6 +54,11 @@
                 cursor: not-allowed;
             }
         }
+
+        .gtc_button_list {
+            display: flex;
+            justify-content: space-evenly;
+        }
     </style>
 </head>
 <body>
@@ -63,13 +68,13 @@
         <label class="gtc_header" for="clue">Clue</label>
         <textarea class="gtc_input gtc_input--clue" id="clue" name="clue" placeholder="Slam nonsense tales" required minlength="1" rows="4"></textarea>
         <label class="gtc_header" for="answer">Answer</label>
-        <input class="gtc_input gtc_input--answer" id="answer" name="answer" placeholder="SLATE" required minlength="1" maxlength="15">
+        <input class="gtc_input" id="answer" name="answer" placeholder="SLATE" required minlength="1" maxlength="15">
         <label class="gtc_header" for="hint">Hint (Optional)</label>
-        <input class="gtc_input gtc_input--answer" id="hint" name="hint" placeholder="'Nonsense' indicates an anagram of nearby letters">
+        <textarea class="gtc_input gtc_input--hint" id="hint" name="hint" placeholder="'Nonsense' indicates an anagram of nearby letters"></textarea>
     </form>
     <div class="gtc_button_list">
-    <button class="gtc_button gtc_button--copy" id="copy">Copy to clipboard</button>
-    <button class="gtc_button gtc_button--copy" id="open">Open in new tab ↗</button>
+        <button class="gtc_button gtc_button--copy" id="copy">Copy to clipboard</button>
+        <button class="gtc_button gtc_button--copy" id="open">Open in new tab</button>
     </div>
     <script>
         document.getElementById('copy').onclick = (e) => {
