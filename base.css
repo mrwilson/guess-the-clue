@@ -29,7 +29,7 @@ html {
 }
 
 .gtc_button {
-    padding: 0.5em 1em;
+    padding: 0.4em 0.5em;
     background: var(--colour-dark-green);
     color: white;
     font-size: medium;

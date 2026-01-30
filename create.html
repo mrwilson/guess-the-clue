@@ -82,7 +82,7 @@
 
         document.getElementById('open').onclick = (_) => {
             let format = [...document.getElementById('maker').querySelectorAll('.gtc_input')]
-                .map((e) => e.text)
+                .map((e) => e.value)
                 .join("|");
 
             let url = `${window.location.origin}${window.location.pathname.replace("create","index")}#${btoa(format)}`;

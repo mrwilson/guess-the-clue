@@ -17,9 +17,14 @@
                 }
             }
 
+            @keyframes fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
             .gtc_main__index {
                 grid-template:
-                    "clue" auto "answer" 40% "reveal" 10%
+                    "clue" auto "hint" 10% "answer" 40% "reveal" 10%
                     "keyboard" env(keyboard-inset-height, 0px);
             }
 
@@ -29,7 +34,7 @@
 
                 align-items: center;
                 justify-content: space-around;
-                grid-row: 2;
+                grid-row: 3;
             }
 
             .gtc_answer__word {
@@ -69,6 +74,21 @@
                 display: none;
             }
 
+            .gtc_header--hint:empty + * + * > .gtc_button#show-hint {
+                display: none;
+            }
+
+            .gtc_header--hint {
+                opacity: 0;
+                grid-row: 2;
+                height: auto;
+            }
+
+            .gtc_header--hint--revealed {
+                animation: fade-in 2s ease-in-out;
+                animation-fill-mode: forwards;
+            }
+
             @media (max-width: 728px) {
                 .gtc_answer__word__letter {
                     font-size: x-large;
@@ -79,14 +99,17 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
+                width: auto;
             }
         </style>
     </head>
     <body>
         <main class="gtc_main gtc_main__index">
             <h1 class="gtc_header" id="clue"></h1>
+            <h4 class="gtc_header gtc_header--hint" id="hint"></h4>
             <form class="gtc_answer" id="answer" target="_blank"></form>
             <div class="gtc_button_list">
+                <button class="gtc_button" id="show-hint">Show hint</button>
                 <button class="gtc_button" id="reveal-letter">Reveal letter</button>
                 <button class="gtc_button" id="reveal-all">Reveal word</button>
                 <a class="gtc_button gtc_link" href="./create.html">Create your own!</a>
@@ -104,6 +127,12 @@
                     document.getElementById('reveal-letter'),
                     document.getElementById('reveal-all'),
                 );
+
+                document.getElementById('hint').textContent = clue.hint;
+
+                document.getElementById('show-hint').onclick = (_) => {
+                    document.getElementById('hint').classList.add('gtc_header--hint--revealed')
+                }
 
                 miniClue.renderClue(clue);
             </script>

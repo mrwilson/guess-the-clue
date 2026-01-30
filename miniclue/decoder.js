@@ -9,6 +9,7 @@ export class ClueDecoder {
     return {
       clue: data.c,
       answer: data.a,
+      hint: data.h
     };
   }
 
@@ -18,6 +19,7 @@ export class ClueDecoder {
     return {
       clue: data[0],
       answer: data[1],
+      hint: data[2]
     };
   }
 
