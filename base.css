@@ -42,13 +42,14 @@ body {
 }
 
 .gtc_button {
-    padding: 0.4em 0.75em;
+    padding: 0.5em 0.75em;
     background: var(--colour-dark-green);
     color: white;
     font-size: medium;
     border-radius: 1.5em;
     border-width: 0;
     cursor: pointer;
+    text-align: center;
 
     &:hover {
         background: color-mix(in srgb, var(--colour-dark-green), black 30%);

@@ -35,14 +35,11 @@
             }
 
             .gtc_answer {
-                display: inline-grid;
-                align-content: space-evenly;
-                justify-items: center;
-                grid-row: 3;
-            }
-
-            .gtc_answer__word {
-                padding: 1em;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-content: center;
+                justify-content: center;
             }
 
             .gtc_answer__word__letter {
@@ -65,8 +62,12 @@
                 animation: grow-shrink 500ms ease-out 0s normal;
             }
 
-            .gtc_answer:valid > .gtc_answer__word {
-                background: lightgreen;
+            .gtc_answer:valid .gtc_answer__word__letter {
+                background-color: lightgreen;
+            }
+
+            .gtc_answer:valid .gtc_answer__word__letter--revealed {
+                background-color: color-mix(in srgb, lightgreen, black 30%);
             }
 
             .gtc_answer:valid + * > .gtc_button:not(.gtc_hidden),
