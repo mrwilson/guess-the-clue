@@ -76,23 +76,25 @@
         <button class="gtc_button gtc_button--copy" id="copy">Copy to clipboard</button>
         <button class="gtc_button gtc_button--copy" id="open">Open in new tab</button>
     </div>
-    <script>
-        document.getElementById('copy').onclick = (e) => {
-            let format = [...document.getElementById('maker').querySelectorAll('.gtc_input')]
-                .map((e) => e.value)
-                .join("|");
+    <script type="module">
+        import {ClueEncoder} from "./miniclue/encoder.js";
 
-            navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname.replace("create","index")}#${btoa(format)}`);
+        function buildClue() {
+            let encoded = ClueEncoder.encode(
+                document.getElementById('clue').value,
+                document.getElementById('answer').value,
+                document.getElementById('hint').value,
+            );
+
+            return `${window.location.origin}${window.location.pathname.replace("create","index")}#${encoded}`;
+        }
+
+        document.getElementById('copy').onclick = (_) => {
+            navigator.clipboard.writeText(buildClue());
         }
 
         document.getElementById('open').onclick = (_) => {
-            let format = [...document.getElementById('maker').querySelectorAll('.gtc_input')]
-                .map((e) => e.value)
-                .join("|");
-
-            let url = `${window.location.origin}${window.location.pathname.replace("create","index")}#${btoa(format)}`;
-
-            window.open(url).focus()
+            window.open(buildClue()).focus()
         }
     </script>
 </main>
