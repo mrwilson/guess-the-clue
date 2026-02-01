@@ -50,6 +50,7 @@ body {
     border-width: 0;
     cursor: pointer;
     text-align: center;
+    line-height: 1.1;
 
     &:hover {
         background: color-mix(in srgb, var(--colour-dark-green), black 30%);

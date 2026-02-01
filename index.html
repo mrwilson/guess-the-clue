@@ -40,15 +40,19 @@
                 gap: 1rem;
                 align-content: center;
                 justify-content: center;
+                container-type: inline-size;
             }
 
             .gtc_answer__word__letter {
                 padding: 0.2em;
                 margin-right: -4px;
-
+                font-size: clamp(
+                    0.7rem,
+                    calc(60cqw / var(--max-word-len)),
+                    1.6rem
+                );
                 width: 1em;
-                height: 1em;
-                font-size: xx-large;
+                aspect-ratio: 1;
                 text-align: center;
                 font-family: sans-serif;
                 text-transform: uppercase;
@@ -94,12 +98,6 @@
                 animation: fade-in 2s ease-in-out;
                 animation-fill-mode: forwards;
             }
-
-            @media (max-width: 728px) {
-                .gtc_answer__word__letter {
-                    font-size: x-large;
-                }
-            }
         </style>
     </head>
     <body>
@@ -128,6 +126,13 @@
                 const clue = new ClueDecoder(examples).decode(
                     window.location.hash,
                 );
+
+                // determine the maximum word length for dynamic letter sizing
+                const words = clue.answer.split(/[ -]/);
+                const maxWordLen = Math.max(...words.map((w) => w.length));
+                document
+                    .getElementById("answer")
+                    .style.setProperty("--max-word-len", maxWordLen);
 
                 const miniClue = new MiniClue(
                     document.getElementById("answer"),
