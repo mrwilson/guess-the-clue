@@ -74,6 +74,7 @@
     </div>
     <script type="module">
         import {ClueEncoder} from "./miniclue/encoder.js";
+        import {MiniClue} from "./miniclue/index.js";
 
         function buildClue() {
             let encoded = ClueEncoder.encode(
@@ -86,7 +87,14 @@
         }
 
         document.getElementById('copy').onclick = (_) => {
-            navigator.clipboard.writeText(buildClue());
+            const message = [
+                `${document.getElementById('clue').value} (${MiniClue.enumerate(document.getElementById('answer').value)})`,
+                buildClue(),
+                "Solve it, and create your own!"
+            ].join("\n\n");
+
+            navigator.clipboard.writeText(message);
+            document.getElementById('copy').textContent = "Copied!"
         }
 
         document.getElementById('open').onclick = (_) => {
