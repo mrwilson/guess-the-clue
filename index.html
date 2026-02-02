@@ -30,8 +30,8 @@
 
             .gtc_main__index {
                 grid-template:
-                    "clue" auto "hint" 10% "answer" 40% "reveal" 10%
-                    "keyboard" env(keyboard-inset-height, 0px);
+                    'clue' auto 'hint' 10% 'answer' 40% 'reveal' 10%
+                    'keyboard' env(keyboard-inset-height, 0px);
             }
 
             .gtc_answer {
@@ -119,9 +119,9 @@
                 </button>
             </div>
             <script type="module">
-                import { MiniClue } from "./miniclue/index.js";
-                import { ClueDecoder } from "./miniclue/decoder.js";
-                import examples from "./miniclue/examples.js";
+                import { MiniClue } from './miniclue/index.js';
+                import { ClueDecoder } from './miniclue/decoder.js';
+                import examples from './miniclue/examples.js';
 
                 const clue = new ClueDecoder(examples).decode(
                     window.location.hash,
@@ -131,35 +131,35 @@
                 const words = clue.answer.split(/[ -]/);
                 const maxWordLen = Math.max(...words.map((w) => w.length));
                 document
-                    .getElementById("answer")
-                    .style.setProperty("--max-word-len", maxWordLen);
+                    .getElementById('answer')
+                    .style.setProperty('--max-word-len', maxWordLen);
 
                 const miniClue = new MiniClue(
-                    document.getElementById("answer"),
-                    document.getElementById("clue"),
-                    document.getElementById("reveal-letter"),
-                    document.getElementById("reveal-all"),
+                    document.getElementById('answer'),
+                    document.getElementById('clue'),
+                    document.getElementById('reveal-letter'),
+                    document.getElementById('reveal-all'),
                 );
 
-                document.getElementById("hint").textContent = clue.hint;
+                document.getElementById('hint').textContent = clue.hint;
 
-                document.getElementById("show-hint").onclick = (_) => {
+                document.getElementById('show-hint').onclick = (_) => {
                     document
-                        .getElementById("hint")
-                        .classList.add("gtc_header--hint--revealed");
+                        .getElementById('hint')
+                        .classList.add('gtc_header--hint--revealed');
                 };
 
-                document.getElementById("share").onclick = (_) => {
+                document.getElementById('share').onclick = (_) => {
                     const message = [
-                        "I solved a clue on Guess The Clue!",
-                        document.getElementById("clue").textContent,
+                        'I solved a clue on Guess The Clue!',
+                        document.getElementById('clue').textContent,
                         window.location,
-                    ].join("\n\n");
+                    ].join('\n\n');
 
                     navigator.clipboard.writeText(message);
 
-                    document.getElementById("share").textContent =
-                        "Copied to clipboard!";
+                    document.getElementById('share').textContent =
+                        'Copied to clipboard!';
                 };
 
                 miniClue.renderClue(clue);

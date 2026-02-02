@@ -15,10 +15,10 @@
         <style>
             .gtc_main__create {
                 grid-template:
-                    "title" 15%
-                    "maker" auto
-                    "copy" auto
-                    "keyboard" env(keyboard-inset-height, 0px);
+                    'title' 15%
+                    'maker' auto
+                    'copy' auto
+                    'keyboard' env(keyboard-inset-height, 0px);
             }
 
             .gtc_main__create__title {
@@ -109,31 +109,31 @@
                 </button>
             </div>
             <script type="module">
-                import { ClueEncoder } from "./miniclue/encoder.js";
-                import { MiniClue } from "./miniclue/index.js";
+                import { ClueEncoder } from './miniclue/encoder.js';
+                import { MiniClue } from './miniclue/index.js';
 
                 function buildClue() {
                     let encoded = ClueEncoder.encode(
-                        document.getElementById("clue").value,
-                        document.getElementById("answer").value,
-                        document.getElementById("hint").value,
+                        document.getElementById('clue').value,
+                        document.getElementById('answer').value,
+                        document.getElementById('hint').value,
                     );
 
-                    return `${window.location.origin}${window.location.pathname.replace("create", "index")}#${encoded}`;
+                    return `${window.location.origin}${window.location.pathname.replace('create', 'index')}#${encoded}`;
                 }
 
-                document.getElementById("copy").onclick = (_) => {
+                document.getElementById('copy').onclick = (_) => {
                     const message = [
-                        `${document.getElementById("clue").value} (${MiniClue.enumerate(document.getElementById("answer").value)})`,
+                        `${document.getElementById('clue').value} (${MiniClue.enumerate(document.getElementById('answer').value)})`,
                         buildClue(),
-                        "Solve it, and create your own!",
-                    ].join("\n\n");
+                        'Solve it, and create your own!',
+                    ].join('\n\n');
 
                     navigator.clipboard.writeText(message);
-                    document.getElementById("copy").textContent = "Copied!";
+                    document.getElementById('copy').textContent = 'Copied!';
                 };
 
-                document.getElementById("open").onclick = (_) => {
+                document.getElementById('open').onclick = (_) => {
                     window.open(buildClue()).focus();
                 };
             </script>
