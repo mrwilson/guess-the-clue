@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Guess The Clue</title>
+        <title>Create a cryptic clue</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
             name="viewport"
@@ -9,8 +9,8 @@
         />
         <meta name="keywords" content="cryptic, crossword, clues" />
         <meta name="description" content="Create a cryptic crossword clue and share it with people you know." />
-        <meta property="og:title" content="Guess The Clue!" />
-        <meta property="og:site_name" content="Guess The Clue!" />
+        <meta property="og:title" content="Cryptick" />
+        <meta property="og:site_name" content="Cryptick" />
         <link rel="stylesheet" href="./base.css" />
         <link rel="icon" href="logo.svg">
         <style>
@@ -117,7 +117,7 @@
                         document.getElementById('hint').value,
                     );
 
-                    return `${window.location.origin}${window.location.pathname.replace('create', 'index')}#${encoded}`;
+                    return `./clue.html#${encoded}`;
                 }
 
                 document.getElementById('copy').onclick = (_) => {

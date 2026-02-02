@@ -11,6 +11,7 @@
 
     <text x="50" y="50" dominant-baseline="central" text-anchor="middle">?</text>
     <text x="250" y="250" dominant-baseline="central" text-anchor="middle">?</text>
+    <text x="150" y="150" dominant-baseline="central" text-anchor="middle" style="fill: var(--colour)">✔</text>
 
     <style>
         :root {

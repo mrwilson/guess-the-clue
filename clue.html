@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Guess The Clue</title>
+        <title>Solve this cryptic clue!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
             name="viewport"
@@ -9,8 +9,8 @@
         />
         <meta name="keywords" content="cryptic, crossword, clues" />
         <meta name="description" content="Create a cryptic crossword clue and share it with people you know." />
-        <meta property="og:title" content="Guess The Clue!" />
-        <meta property="og:site_name" content="Guess The Clue!" />
+        <meta property="og:title" content="Cryptick" />
+        <meta property="og:site_name" content="Cryptick" />
         <link rel="stylesheet" href="./base.css" />
         <link rel="icon" href="logo.svg">
         <style>
@@ -152,7 +152,7 @@
 
                 document.getElementById('share').onclick = (_) => {
                     const message = [
-                        'I solved a clue on Guess The Clue!',
+                        'I solved a clue on Cryptick!',
                         document.getElementById('clue').textContent,
                         window.location,
                     ].join('\n\n');
