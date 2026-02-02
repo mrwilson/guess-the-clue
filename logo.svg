@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="300" width="300" viewBox="-25 -25 350 350">
+    <rect class="d" x="0" y="0" width="100" height="100"/>
+    <rect class="l" x="0" y="100" width="100" height="100"/>
+    <rect class="l" x="0" y="200" width="100" height="100"/>
+    <rect class="l" x="100" y="0" width="100" height="100"/>
+    <rect class="l" x="100" y="100" width="100" height="100"/>
+    <rect class="l" x="100" y="200" width="100" height="100"/>
+    <rect class="l" x="200" y="0" width="100" height="100"/>
+    <rect class="l" x="200" y="100" width="100" height="100"/>
+    <rect class="d" x="200" y="200" width="100" height="100"/>
+
+    <text x="50" y="50" dominant-baseline="central" text-anchor="middle">?</text>
+    <text x="250" y="250" dominant-baseline="central" text-anchor="middle">?</text>
+
+    <style>
+        :root {
+        --colour: hsl(131.29, 42.98%, 46.08%)
+        }
+        rect { stroke-width: 20; stroke: var(--colour); }
+        text { font-family: Verdana; font-size: 90px; }
+
+        .l, text { fill: white; }
+        .d { fill: var(--colour); }
+
+        @media (prefers-color-scheme: dark) {
+        .l, text { fill: black; }
+        }
+    </style>
+</svg>
