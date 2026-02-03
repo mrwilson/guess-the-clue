@@ -1,5 +1,5 @@
 import { assert, describe, it, beforeEach } from 'vitest';
-import { MiniClue } from '../miniclue';
+import { CryptickClue } from '../miniclue/clue.js';
 
 // @vitest-environment jsdom
 
@@ -12,7 +12,7 @@ describe('MiniClue', () => {
         revealLetter = document.createElement('button');
         revealWord = document.createElement('button');
 
-        new MiniClue(answer, clue, revealLetter, revealWord).renderClue({
+        new CryptickClue(answer, clue, revealLetter, revealWord).renderClue({
             clue: 'What time is it?',
             answer: 'aaaaaa',
         });

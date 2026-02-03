@@ -124,7 +124,7 @@
                 <a class="pill hidden" href="./create.html">Create your own!</a>
             </div>
             <script type="module">
-                import { MiniClue } from './miniclue/index.js';
+                import { CryptickClue } from './miniclue/clue.js';
                 import { ClueDecoder } from './miniclue/decoder.js';
                 import examples from './miniclue/examples.js';
 
@@ -139,7 +139,7 @@
                     .getElementById('answer')
                     .style.setProperty('--max-word-len', maxWordLen);
 
-                const miniClue = new MiniClue(
+                const miniClue = new CryptickClue(
                     document.getElementById('answer'),
                     document.getElementById('clue'),
                     document.getElementById('reveal-letter'),
