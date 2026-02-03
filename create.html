@@ -31,7 +31,6 @@
                 display: inline-grid;
                 grid-row: 1;
                 row-gap: 1em;
-                padding: 2em 0;
             }
 
             .clue_maker__input {
@@ -45,6 +44,7 @@
 
             .clue_maker__label {
                 text-align: left;
+                color: var(--colour-dark-green);
             }
 
             .clue_maker:invalid + * > .pill {
@@ -64,7 +64,7 @@
         </header>
         <main>
             <form class="clue_maker">
-                <label class="header clue_maker__label" for="clue">Clue</label>
+                <label class="clue_maker__label" for="clue">Clue</label>
                 <textarea
                     class="input clue_maker__input input--clue"
                     id="clue"
@@ -74,9 +74,7 @@
                     minlength="1"
                     rows="4"
                 ></textarea>
-                <label class="header clue_maker__label" for="answer"
-                    >Answer</label
-                >
+                <label class="clue_maker__label" for="answer">Answer</label>
                 <input
                     class="input clue_maker__input clue_maker__input--answer"
                     id="answer"
@@ -86,7 +84,7 @@
                     minlength="1"
                     maxlength="15"
                 />
-                <label class="header clue_maker__label" for="hint"
+                <label class="clue_maker__label" for="hint"
                     >Hint (Optional)</label
                 >
                 <textarea
@@ -94,6 +92,7 @@
                     id="hint"
                     name="hint"
                     placeholder="'Nonsense' indicates an anagram of nearby letters"
+                    rows="3"
                 ></textarea>
             </form>
             <div class="list">
