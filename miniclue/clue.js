@@ -1,16 +1,22 @@
 import { enumerate } from './utils.js';
 
 export class CryptickClue {
-    constructor(answer, clue, revealLetter, revealWord) {
+    constructor(answer, clue, hint, revealLetter, revealWord, showHint, share) {
         this.answer = answer;
         this.clue = clue;
+        this.hint = hint;
         this.revealLetter = revealLetter;
         this.revealWord = revealWord;
+        this.showHint = showHint;
+        this.share = share;
         this.letters = [];
     }
 
     renderClue(params) {
         let words = params.answer.split(/[ -]/);
+
+        const maxWordLen = Math.max(...words.map((w) => w.length));
+        this.answer.style.setProperty('--max-word-len', maxWordLen);
 
         this.clue.textContent = `${params.clue} (${enumerate(params.answer)})`;
 
@@ -41,6 +47,22 @@ export class CryptickClue {
             letter.readOnly = true;
             letter.classList.add('answer__word__letter--revealed');
         };
+
+        this.hint.textContent = params.hint;
+
+        this.showHint.onclick = (_) =>
+            this.hint.classList.add('header--hint--revealed');
+    }
+
+    shareMessage(location, clipboard) {
+        let message = [
+            'I solved a clue on Cryptick!',
+            this.clue.textContent,
+            location,
+        ].join('\n\n');
+        clipboard.writeText(message).then((_) => {
+            this.share.textContent = 'Copied to clipboard!';
+        });
     }
 
     #navigate() {
