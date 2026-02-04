@@ -44,6 +44,15 @@ header {
     }
 }
 
+.tick {
+    border: solid var(--colour-dark-green) 2px;
+    display: inline-flex;
+    height: 1em;
+    width: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
 main {
     grid-row: 2;
 
