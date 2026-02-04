@@ -132,40 +132,18 @@
                     window.location.hash,
                 );
 
-                // determine the maximum word length for dynamic letter sizing
-                const words = clue.answer.split(/[ -]/);
-                const maxWordLen = Math.max(...words.map((w) => w.length));
-                document
-                    .getElementById('answer')
-                    .style.setProperty('--max-word-len', maxWordLen);
-
                 const miniClue = new CryptickClue(
                     document.getElementById('answer'),
                     document.getElementById('clue'),
+                    document.getElementById('hint'),
                     document.getElementById('reveal-letter'),
                     document.getElementById('reveal-all'),
+                    document.getElementById('show-hint'),
+                    document.getElementById('share'),
                 );
 
-                document.getElementById('hint').textContent = clue.hint;
-
-                document.getElementById('show-hint').onclick = (_) => {
-                    document
-                        .getElementById('hint')
-                        .classList.add('header--hint--revealed');
-                };
-
-                document.getElementById('share').onclick = (_) => {
-                    const message = [
-                        'I solved a clue on Cryptick!',
-                        document.getElementById('clue').textContent,
-                        window.location,
-                    ].join('\n\n');
-
-                    navigator.clipboard.writeText(message);
-
-                    document.getElementById('share').textContent =
-                        'Copied to clipboard!';
-                };
+                document.getElementById('share').onclick = (_) =>
+                    miniClue.shareMessage(window.location, navigator.clipboard);
 
                 miniClue.renderClue(clue);
             </script>

@@ -4,15 +4,26 @@ import { CryptickClue } from '../miniclue/clue.js';
 // @vitest-environment jsdom
 
 describe('MiniClue', () => {
-    let answer, clue, revealLetter, revealWord, miniClue;
+    let answer, clue, hint, revealLetter, revealWord, showHint, share;
 
     beforeEach(() => {
         answer = document.createElement('form');
         clue = document.createElement('h1');
+        hint = document.createElement('h4');
         revealLetter = document.createElement('button');
         revealWord = document.createElement('button');
+        showHint = document.createElement('button');
+        share = document.createElement('button');
 
-        new CryptickClue(answer, clue, revealLetter, revealWord).renderClue({
+        new CryptickClue(
+            answer,
+            clue,
+            hint,
+            revealLetter,
+            revealWord,
+            showHint,
+            share,
+        ).renderClue({
             clue: 'What time is it?',
             answer: 'aaaaaa',
         });
