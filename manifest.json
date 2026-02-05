@@ -1,0 +1,24 @@
+{
+    "short_name": "Cryptick",
+    "name": "Cryptick",
+    "description": "Create a cryptic crossword clue and share it with people you know",
+    "icons": [
+        {
+            "src": "./logo.svg",
+            "sizes": "any",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "shortcuts": [
+        {
+            "name": "Create a clue",
+            "short_name": "Create",
+            "description": "Create a clue with Cryptick and share it with people you know",
+            "url": "./create.html"
+        }
+    ],
+    "display": "standalone",
+    "theme_color": "#286433",
+    "background_color": "#9bbcabff"
+}

@@ -41,6 +41,7 @@ header {
 
 .tick {
     border: solid var(--colour-active) 2px;
+    background-color: white;
     display: inline-flex;
     height: 1em;
     width: 1em;

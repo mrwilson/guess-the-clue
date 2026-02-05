@@ -25,6 +25,7 @@ jobs:
             --include "*.html" \
             --include "miniclue/*.js" \
             --include "logo.svg" \
+            --include "manifest.json" \
             --delete \
             --acl public-read \
             --cache-control max-age=300

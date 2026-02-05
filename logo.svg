@@ -1,30 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="300" width="300" viewBox="-25 -25 350 350">
-    <rect class="d" x="0" y="0" width="100" height="100"/>
-    <rect class="l" x="0" y="100" width="100" height="100"/>
-    <rect class="l" x="0" y="200" width="100" height="100"/>
-    <rect class="l" x="100" y="0" width="100" height="100"/>
-    <rect class="l" x="100" y="100" width="100" height="100"/>
-    <rect class="l" x="100" y="200" width="100" height="100"/>
-    <rect class="l" x="200" y="0" width="100" height="100"/>
-    <rect class="l" x="200" y="100" width="100" height="100"/>
-    <rect class="d" x="200" y="200" width="100" height="100"/>
-
-    <text x="50" y="50" dominant-baseline="central" text-anchor="middle">?</text>
-    <text x="250" y="250" dominant-baseline="central" text-anchor="middle">?</text>
-    <text x="150" y="150" dominant-baseline="central" text-anchor="middle" style="fill: var(--colour)">✔</text>
-
+<svg xmlns="http://www.w3.org/2000/svg" height="300" width="300">
+    <circle class="d" cx="150" cy="150" r="150"/>
+    <rect class="l" x="75" y="75" width="150" height="150"/>
+    <text x="150" y="150" dominant-baseline="central" text-anchor="middle">✔</text>
     <style>
-        :root {
-        --colour: hsl(131.29, 42.98%, 46.08%)
-        }
-        rect { stroke-width: 20; stroke: var(--colour); }
-        text { font-family: Verdana; font-size: 90px; }
-
-        .l, text { fill: white; }
-        .d { fill: var(--colour); }
-
-        @media (prefers-color-scheme: dark) {
-        .l, text { fill: black; }
-        }
+        :root { --light: #9bbcabff; --medium: #358544; --dark: #286433; }
+        circle { fill: var(--light); }
+        rect { stroke-width: 15; stroke: var(--dark); fill: white; }
+        text { font-family: Verdana; font-size: 130px; fill: var(--medium); }
     </style>
 </svg>
