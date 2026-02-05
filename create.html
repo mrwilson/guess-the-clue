@@ -41,13 +41,12 @@
 
             .clue_maker__label {
                 text-align: left;
-                color: var(--colour-dark-green);
+                color: var(--colour-active);
             }
 
-            .clue_maker:invalid + * > .pill {
+            .clue_maker:invalid + .list > .pill {
                 pointer-events: none;
-                background: var(--colour-grey);
-                cursor: not-allowed;
+                background: var(--colour-inactive);
             }
 
             .list {
@@ -104,6 +103,8 @@
                     document.getElementById('answer'),
                     document.getElementById('hint'),
                 );
+
+                document.getElementById('answer').valid
 
                 document.getElementById('copy').onclick = (e) => {
                     const copyText = create.copyText(

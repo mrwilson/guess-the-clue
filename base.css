@@ -1,18 +1,13 @@
 :root {
-    --colour-base: #8edc6f;
-    --colour-green: #43a856ff;
-    --colour-green-aa: #358544;
-    --colour-dark-green: #286433;
-    --colour-green-2: #64bd76ff;
-    --colour-green-3: #85cb91ff;
-    --colour-green-4: #75c585ff;
-    --colour-teal: #9bbcabff;
-    --colour-grey: #9fa6b4ff;
+    --colour-accent: #358544;
+    --colour-active: #286433;
+    --colour-bg: #9bbcabff;
+    --colour-inactive: #9fa6b4ff;
 }
 
 html {
     color-scheme: light;
-    background: var(--colour-teal);
+    background: var(--colour-bg);
 }
 
 body {
@@ -37,26 +32,27 @@ header {
     height: 100%;
     text-align: left;
     padding-left: 2em;
-    color: var(--colour-dark-green);
+    color: var(--colour-active);
 
-    a:visited {
+    a, a:visited {
         color: inherit;
     }
 }
 
 .tick {
-    border: solid var(--colour-dark-green) 2px;
+    border: solid var(--colour-active) 2px;
     display: inline-flex;
     height: 1em;
     width: 1em;
     align-items: center;
     justify-content: center;
+    color: var(--colour-accent);
 }
 
 main {
     grid-row: 2;
-
     height: 80vh;
+    width: 85vw;
     max-width: 22em;
     margin: 0 auto;
     padding: 1em;
@@ -78,8 +74,8 @@ footer {
 }
 
 .pill {
-    padding: 0.5em 0.75em;
-    background: var(--colour-dark-green);
+    padding: 0.5em;
+    background: var(--colour-accent);
     color: white;
     font-size: medium;
     border-radius: 1.5em;
@@ -87,9 +83,11 @@ footer {
     cursor: pointer;
     text-align: center;
     line-height: 1.1;
+    max-width: 40%;
+    flex: 1;
 
     &:hover {
-        background: color-mix(in srgb, var(--colour-dark-green), black 30%);
+        background: var(--colour-active);
     }
 }
 
@@ -108,7 +106,7 @@ p {
 }
 
 .header {
-    color: var(--colour-dark-green);
+    color: var(--colour-active);
     text-align: center;
 }
 

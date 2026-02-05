@@ -50,8 +50,10 @@ export class CryptickClue {
 
         this.hint.textContent = params.hint;
 
-        this.showHint.onclick = (_) =>
-            this.hint.classList.add('header--hint--revealed');
+        this.showHint.onclick = (_) => {
+            this.hint.classList.add('hint--revealed');
+            this.showHint.disabled = true;
+        }
     }
 
     shareMessage(location, clipboard) {
