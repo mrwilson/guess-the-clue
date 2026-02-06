@@ -19,6 +19,10 @@
         <meta property="og:image:width" content="1200" />
         <link rel="stylesheet" href="./base.css" />
         <link rel="icon" href="./logo.svg" />
+        <script type="module">
+            import ErrorHandler from './miniclue/errors.js';
+            new ErrorHandler().bind(window);
+        </script>
         <style>
             @keyframes grow-shrink {
                 50% {

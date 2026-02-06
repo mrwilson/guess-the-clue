@@ -20,10 +20,15 @@
         <link rel="manifest" href="./manifest.json" />
         <link rel="stylesheet" href="./base.css" />
         <link rel="icon" href="./logo.svg" />
-        <script type="module">
-            import ErrorHandler from './miniclue/errors.js';
-            new ErrorHandler().bind(window);
-        </script>
+        <style>
+            svg text {
+                fill: red;
+            }
+
+            .content {
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -31,27 +36,21 @@
             <span class="tick"></span>
         </header>
         <main>
-            <p>Create a cryptic crossword clue.</p>
-            <p>Share it with people you know.</p>
-            <p>No accounts. No personal data. No cookies.</p>
-            <noscript>
-                <p>
-                    Unfortunately, as this site is browser-based, we do require
-                    Javascript to be enabled.
-                </p>
-            </noscript>
-            <div class="list">
-                <a class="pill pill--big" href="./create.html">
-                    Create a clue
-                </a>
-            </div>
-
-            <script>
-                window.location.hash &&
-                    window.location.replace(
-                        `./clue.html${window.location.hash}`,
-                    );
-            </script>
+            <h2 class="header">There was a problem!</h2>
+            <p>
+                <img
+                    src="./error.svg"
+                    alt="A green box with a red cross within, indicating a mistake."
+                />
+            </p>
+            <p class="content" id="error">
+                You appear to have encountered an error while using Cryptick,
+                sorry about that!
+            </p>
+            <p class="content" id="description">
+                Please report issues, and steps to reproduce if possible, on
+                <a href="https://github.com/mrwilson/cryptick/issues">GitHub</a>
+            </p>
         </main>
         <footer>
             <a href="https://github.com/mrwilson/guess-the-clue">Open source</a>

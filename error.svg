@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="150" width="150">
+    <rect class="l" x="0" y="0" width="150" height="150"/>
+    <text x="75" y="65" dominant-baseline="central" text-anchor="middle">✗</text>
+    <style>
+        rect { stroke-width: 25; stroke: #286433; fill: white; }
+        text { font-family: Verdana; font-size: 130px; fill: red; }
+    </style>
+</svg>
