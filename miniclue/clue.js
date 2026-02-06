@@ -53,7 +53,7 @@ export class CryptickClue {
         this.showHint.onclick = (_) => {
             this.hint.classList.add('hint--revealed');
             this.showHint.disabled = true;
-        }
+        };
     }
 
     shareMessage(location, clipboard) {
