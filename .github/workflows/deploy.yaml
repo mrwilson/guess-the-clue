@@ -28,4 +28,4 @@ jobs:
             --include "manifest.json" \
             --delete \
             --acl public-read \
-            --cache-control max-age=300
+            --cache-control max-age=3600
